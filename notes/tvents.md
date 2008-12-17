@@ -14,28 +14,43 @@ Tags with an infix colon are considered 'fielded' tags. (For example, ':title: H
 
 The interface will provide special summaries of consensus tagging, such as the counts and times of earliest/latest application of each tag, or of the first/most-commonly/last provided values for fields.
 
-As many administrative/moderation tasks as possible will be acheived by tagging ('functional tags'). Thus some tag syntax, other than just a preceding colon, will have special meaning to the system, such as overriding previous tags.
+As many administrative/moderation tasks as possible will be achieved by tagging ('functional tags'). Thus some tag syntax, other than just a preceding colon, will have special meaning to the system, such as overriding previous tags.
 
 Tvents
 ------
 
 Multiple tags applied at the same moment, by the same user, to the same target are collected in a batch called a 'tagging event' or 'tvent' for short.
 
-That is, a tvent includes a target, a user, a timestamp, and some number of tags (of any sort).
-
-Tvents themselves may be tagged.
-
-Tvents are representable in plain Unicode text. In this representation, even the target, originating user, and timestamp can be seen as tags of a special syntax.
+That is, a tvent includes a (single) target, a (single) originating user, a (single, current) timestamp, and some number of tags (of any sort).
 
 Tvents have their own URIs, and are themselves taggable.
+
+Tvents are representable in plain Unicode text. In this representation, even the target, originating user, and timestamp can be seen as tags of a special syntax. The target is prefixed with a '@'; the user with a '~'; the timestamp with a '='. Tags are ended with a CR; a CR may be included in the tag by backslash-escaping. Tvents are ended with a blank line. (The empty string is not a legal tag.)
+
 
 Examples
 --------
 
-TK
+These are two tvents by two users against the same target within a few minutes of each other:
 
+    =2008-12-15T22:07:49
+    ~gojomo
+    @sha1:WFVZH63UI4NBKYROQWLISCXXY2H5KNNL
+    :movie
+    :filename: NightOfTheLivingDead.ogv
+    :length: 411906346
+    :title: Night of the Living Dead
+    :director: George A. Romero
+    :date: 1968
+    :source url: http://www.archive.org/download/NightOfTheLivingDead-MPEG/NightOfTheLivingDead.ogv
+    
+    =2008-12-15T22:08:22
+    ~horrorfan
+    @sha1:WFVZH63UI4NBKYROQWLISCXXY2H5KNNL
+    zombies
+    black and white
+    :filename: Night of the Living Dead.ogv
+    :mimetype: video/ogg
+    :licensing: public domain
 
-
-
-
-
+MediaTagi will import tvents in this format, subject to checks on whether the source is trusted to provide timestamps and usernames.
