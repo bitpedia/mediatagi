@@ -23,9 +23,13 @@ Multiple tags applied at the same moment, by the same user, to the same target a
 
 That is, a tvent includes a (single) target, a (single) originating user, a (single, current) timestamp, and some number of tags (of any sort).
 
-Tvents have their own URIs, and are themselves taggable.
-
 Tvents are representable in plain Unicode text. In this representation, even the target, originating user, and timestamp can be seen as tags of a special syntax. The target is prefixed with a '@'; the user with a '~'; the timestamp with a '='. Tags are ended with a CR; a CR may be included in the tag by backslash-escaping. Tvents are ended with a blank line. (The empty string is not a legal tag.)
+
+Tvents have their own URIs, and are themselves taggable. The URI scheme is 'tvent', and the timestamp, user, and target appear in order, each preceded by a '/' path-separator. For example, a URI to a specific tvent, relative within a mediatagi site could be:
+
+    tvent:/=2008-12-15T22:07:49/~gojomo/@sha1:WFVZH63UI4NBKYROQWLISCXXY2H5KNNL
+
+(An absolute tvent URI distinguishing among alternate sites can add an '//authority.com' portion immediately after the scheme.)
 
 
 Examples
