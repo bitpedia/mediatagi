@@ -1,0 +1,58 @@
+<html>
+ <head>
+{% block html_head %}
+
+<title>{% block html_title %}Bitpedia{% endblock %}</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" id="iphone-viewport" content="width=480;" />
+<link rel="stylesheet" href="/s/tvents.css" type="text/css"/>
+<link rel="stylesheet" href="/s/bitlogo.css" type="text/css"/>
+<link rel="shortcut icon" href="/s/favicon.ico" type="image/vnd.microsoft.icon" />
+<script src="/s/jquery.js"></script>
+
+{% endblock %}
+ </head>
+ <body class='{% block body/@class %}{% endblock %}'>
+{% block header %}
+
+<div class="header">
+ <div class="bitlogoblock"><span class="bitlogo">
+B<div>itpedi<div>itpedi<span class="bit1">.</span
+><span class="bit2">.</span
+><span class="bit3">.</span
+><span class="bit4">.</span
+><span class="bit5">.</span
+><span class="bit6">.</span
+><span class="bit7">.</span></div></div>a</span>
+</div>
+
+ <span class="headerText">{% block headerText %}headertext
+  <span class="tick">&middot;&middot;&middot;</span> 
+  <a href="#">extranav</a>
+ {% endblock %}</span>
+ <div class="extent"></div>
+</div>
+
+{% endblock %}
+
+{% block main %}
+
+Lorem ipsum yadda yadda yadda.
+
+{% endblock %}
+
+{% block footer %}
+
+<div class='footer'>
+&copy; {% now "Y" %} Bitpedia and individual contributors 
+<div class='license'>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="/s/by-sa_3.0_88x31.png" /></a><br/>
+Except as otherwise noted, content on this site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><br/>
+Creative Commons Attribution-Share Alike 3.0 License</a>.
+</div>
+
+</div>
+
+{% endblock %}
+

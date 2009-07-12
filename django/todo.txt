@@ -1,0 +1,46 @@
+X - revert ~/@, clear db
+X - implement bulk import for testing
+X - tlog/ view
+X - targetsummarylog
+X   - basic compilation
+X   - prettify
+X   - templatize, header/footer
+X   - f/m/l toggles
+ - taglog
+X   - add f/m/l name per tvent
+ - tvent contribution page
+ - tag-to-target summary
+ - tag fixup
+   - display-time
+   - canonicalization? 
+
+ - user registration
+   - limit bzpull,submissions-with-name
+
+ - user tvent editting (delete-all, delete-tags)
+
+ - tvent subtagging
+
+ - mimetype icons
+
+
+
+MediaWiki vs. Custom Wiki
+
+MediaWiki advantages
+- familiar to important audience
+- many admin functions
+- install and go
+MediaWiki disadvantages
+- cross-system login scheme needed
+- adds another language (PHP)/bugsource/upstream/deployment-issues
+
+CustomDjangoWiki
+advantages
+- unified login
+- total control of features/integration with tagi side
+- might get reuse of some other wiki app
+disadvantages
+- time spent reimplementing core features (edit, history, etc.) 
+  rather than one-time user integration
+- lessens connect/analogy to mediawiki projects

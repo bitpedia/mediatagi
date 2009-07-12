@@ -1,0 +1,277 @@
+/* tvents css
+   order can be very important with :hover and class-swapping tricks
+ */
+
+.cfirst {
+ color:orange;
+}
+.clast {
+ color:darkturquoise;
+}
+.cmost {
+ color:fuchsia;
+}
+
+ul.smInlineNames .cfirst, ul.smInlineNames .cmost, ul.smInlineNames:hover .clast {
+ color:#aaa;
+}
+
+.smInlineNames > li.cfirst:hover {
+ color:orange;
+}
+.smInlineNames > li.cmost:hover {
+ color:fuchsia;
+}
+.smInlineNames > li.clast:hover {
+ color:darkturquoise;
+}
+
+ul.smInlineNames {
+ list-style-type:none;
+ display:inline;
+ margin:0px;
+ padding:0px;
+ position:relative;
+}
+
+.smInlineNames > li {
+ display:inline;
+}
+
+.smInlineNames > li .variantbullets {
+ cursor:pointer;
+}
+
+
+.altname {
+ visibility:hidden;
+ position:absolute;
+ left:2em;
+ width:500px;
+ color:black;
+}
+
+.defaultname {
+ visibility:visible;
+}
+
+ul.smInlineNames:hover .defaultname {
+ visibility:hidden;
+}
+
+.smInlineNames > li:hover > .altname {
+ visibility:visible;
+}
+
+.tvnames {
+ padding-left:10em;
+}
+
+
+ul.tventlog {
+ padding:10px 40px 10px 40px
+}
+
+
+.taggroups, .summaries {
+  padding:0px;
+  margin:0px;
+}
+
+.tventlog > li, .summaries > li, .taggroups > li {
+  list-style-type:none;
+  display:block;
+  padding:0;
+}
+
+.summaries > li {
+ padding-left:3em;
+}
+
+.tventlog > li {
+  padding-top:0.5em;
+  padding-bottom:0.5em;
+  border-bottom:1px dotted #aaa;
+}
+
+.tvwhat {
+  padding-left:10em;
+  display:block;
+  color:#999;
+}
+
+.tvmargin {
+  display:block;
+  float:left;
+  width:10em;
+  font-size:70%;
+}
+
+.tvwhen {
+  color:#999;
+}
+
+.tagsarea {
+  padding-left:10em;
+  display:block;
+}
+
+.tag {
+  border-bottom:1px solid #479;
+  border-right:1px solid #8AC;
+  border-top:1px solid transparent;
+  border-left:1px solid transparent;
+  font-size:80%;
+  line-height:2;
+  margin:2px 1px;
+  padding:3px 4px;
+  text-decoration:none;
+  white-space:nowrap;
+  background-color:#e5e5ff;
+  color:#356;
+}
+
+.tvent .tag:hover {
+  xtext-decoration:underline;
+  background-color:#45455f;
+  color:#DEF;
+  xborder:1px yellow solid;
+}
+
+body {
+ font-family:sans;
+}
+
+.count {
+ position:relative;
+ xtop:-3px; 
+ color:#999;
+ font-size:70%;
+}
+
+.fieldname {
+ font-family:sans;
+ font-variant:small-caps;
+ font-weight:bold;
+ font-size:80%;
+ color:#888;
+ text-decoration:none;
+}
+
+.fieldname:hover {
+ text-decoration:underline;
+}
+
+.fieldvalue {
+ text-decoration:none;
+ color:black;
+}
+.fieldvalue:hover {
+ text-decoration:underline;
+}
+
+.valuevariant {
+ display:block;
+}
+
+.groupheader {
+ font-family:sans;
+ font-size:80%;
+ border-top:2px dotted #DDDDDD;
+ color:#888888;
+ display:block;
+ font-variant:small-caps;
+ font-weight:bold;
+ margin-top:8px;
+}
+
+.valuevariant {
+ position:relative;
+}
+.variantbullets {
+ font-size:166%;
+ line-height:66%;
+ font-weight:bolder;
+ font-family:arial,helvetica;
+}
+.variantlabels {
+ position:absolute;
+ left:-3em;
+ width:2.8em;
+ text-align:right;
+ margin-right:1em;
+}
+ 
+.hover {
+ visibility:hidden;
+}
+
+li.hoverzone:hover .hover {
+ notdisplay:block;
+ visibility:visible;
+ z-index:1000;
+}
+
+
+.header {
+  white-space:nowrap;
+  border-bottom:1px solid #666;
+}
+
+.headerText {
+ notcolor:#888;
+ notfont-size:70%;
+ position:relative;
+ top:1.33em;
+}
+
+.tick {
+  color:#888;
+}
+
+.extent {
+ clear:both;
+}
+
+.footer {
+ border-top:1px solid #666;
+ padding:10px;
+ text-align:center;
+ font-size:70%;
+}
+
+.license {
+ position:relative;
+ width:60%;
+ margin:auto;
+}
+.license img {
+ padding:1em;
+}
+
+.tools {
+ text-align:right;
+}
+
+.toggle {
+ xcursor:pointer;
+ xfont-weight:bold;
+ XNOTtext-decoration:line-through;
+}
+
+.ifirst, .imost, .ilast, .bfirst, .bmost, .blast {display:none;}
+.showFirst .ifirst, .showMost .imost, .showLast .ilast {display:inline;}
+.showFirst .bfirst, .showMost .bmost, .showLast .blast {display:block;}
+
+.tools {
+ font-family:arial,helvetica;
+ font-weight:bolder;
+ font-size:166%;
+ line-height:66%
+}
+
+.tools input {
+ vertical-align:bottom;
+ position:relative;
+ top:-0.1ex;
+}

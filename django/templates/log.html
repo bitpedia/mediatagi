@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block html_title %}{% if tag %}{{ tag }}{% endif %} Log - Bitpedia{% endblock %}
+
+{% block headerText %}
+
+/ log {% if tag %}/ {{ tag }} {% endif %} <span class='tick'>through {{ until }}</span>
+
+{% endblock %}
+
+{% block main %}
+
+{% if tvents %}
+  <ul class='tventlog'>
+  {% for tvent in tvents %}
+    <li>
+     <span class='tvent'>
+      <span class='tvnames'>
+      {% with tvent.target as target %}{% include "target_names_small.html" %}{% endwith %}
+      </span>
+      <span class='tvmargin'>
+       <a class='tvwho' href='/log/~{{ tvent.user }}'>~{{ tvent.user }}</a><br/>
+       <a class='tvwhen' href='/tvent/{{ tvent.uniqey }}'>={{ tvent.when }}</a>
+      </span>
+       <a class='tvwhat' href='/summary/@{{ tvent.target_id }}'>@{{ tvent.target_id }}</a>
+       <span class='tagsarea'>
+       {% for tag in tvent.tags %}
+         <a href="#" class='tag'>{{ tag }}</a>
+       {% endfor %}
+       </span>
+     </span>
+    </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  <p>No matching tvents.</p>
+{% endif %}
+
+{% endblock %}

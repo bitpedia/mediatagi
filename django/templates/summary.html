@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block html_title %}{{ tag }} Summary - Bitpedia{% endblock %}
+
+{% block headerText %}
+
+/ summary / {{ consfield_summaries.filename.last.fieldvalue }} / {{ tag }}
+
+{% endblock %}
+
+{% block body/@class %}showFirst showLast showMost{% endblock %}
+
+{% block main %}
+
+<div class='tools'>
+ <label title="show/hide last values" class="clast"><input type=checkbox checked onclick="$('body').toggleClass('showLast')"/>&bull;</label>
+ <label title="show/hide most values" class="cmost"><input type=checkbox checked onclick="$('body').toggleClass('showMost')"/>&bull;</label>
+ <label title="show/hide first values" class="cfirst"><input type=checkbox checked onclick="$('body').toggleClass('showFirst')"/>&bull;</label>
+</div>
+
+  <ul class='taggroups'>
+  {% for group in grouped_summaries %}
+   <li>
+   {% if group|first %}
+    <span class="groupheader">{{ group|first }}</span>
+   {% endif %}
+    <ul class='summaries'>
+    {% for tagsummary in group|last %}
+     <li class='hoverzone'>
+     {% if tagsummary.first.fieldname %}
+      <a href="#" class='fieldname'>{{ tagsummary.first.fieldname }}</a> <span class='count hover'> {{ tagsummary.cardinality }} unique value{{tagsummary.cardinality|pluralize}}</span> 
+      {% for variant in tagsummary.variants %}
+      <span class='valuevariant {% for label in variant.labels %} b{{label}}{% endfor %}'>
+       <span class='variantlabels variantbullets'>
+       {% for label in variant.labels %}<span class='c{{label}} i{{label}}' title='{{label}}'>&bull;</span>{% endfor %}
+       </span>
+       <a href='#' 
+          class='fieldvalue'>{{ variant.fieldvalue }}</a> 
+        <span class='count'> &times;{{ variant.count }} 
+	<span class='hover'>~{{ variant.first.user }}...~{{ variant.last.user }}</span> </span>
+      </span>
+     {% endfor %}
+    {% else %}
+     <a href='#'class='tag'> {{ tagsummary.value }} </a>
+     <span class='count'>  &times;{{ tagsummary.count }} 
+     <span class='hover'>~{{ tagsummary.first.user }}...~{{ tagsummary.last.user}} </span></span>
+    {% endif %}
+    </li>
+   {% empty %}
+    <li>&nbsp;</li>
+   {% endfor %}
+   </ul>
+  </li>
+ {% endfor %}
+ </ul>
+
+{% endblock %}
