@@ -4,7 +4,7 @@
 
 {% block headerText %}
 
-/ log {% if tag %}/ {{ tag }} {% endif %} <span class='tick'>through {{ until }}</span>
+/ log {% if tag %}/ {{ tag }} {% endif %} {% if until %}<span class='tick'>through {{ until }}</span> {% endif %}
 
 {% endblock %}
 
@@ -25,8 +25,18 @@
        <a class='tvwhat' href='/summary/@{{ tvent.target_id }}'>@{{ tvent.target_id }}</a>
        <span class='tagsarea'>
        {% for tag in tvent.tags %}
-         <a href="#" class='tag'>{{ tag }}</a>
+         {% if tag.fieldname %}
+       {% spaceless %} 
+          <a class='fieldtag' href="#">
+           <span class='fieldtagname'>{{ tag.fieldname }} </span> 
+           <span class='fieldtagvalue'>{{ tag.fieldvalue}}</span>
+	  </a>
+       {% endspaceless %}
+	 {% else %}
+          <a href="#" class='tag'>{{ tag }}</a>
+         {% endif %}
        {% endfor %}
+
        </span>
      </span>
     </li>

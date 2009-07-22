@@ -30,7 +30,8 @@ ul.smInlineNames {
  list-style-type:none;
  display:inline;
  margin:0px;
- padding:0px;
+ xpadding-left:10em;
+ padding:0;
  position:relative;
 }
 
@@ -65,6 +66,7 @@ ul.smInlineNames:hover .defaultname {
 
 .tvnames {
  padding-left:10em;
+ display:block;
 }
 
 
@@ -109,6 +111,11 @@ ul.tventlog {
 
 .tvwhen {
   color:#999;
+  text-decoration:none;
+}
+
+.tvwhen:hover {
+ text-decoration:underline;
 }
 
 .tagsarea {
@@ -125,8 +132,8 @@ ul.tventlog {
   line-height:2;
   margin:2px 1px;
   padding:3px 4px;
-  text-decoration:none;
   white-space:nowrap;
+  text-decoration:none;
   background-color:#e5e5ff;
   color:#356;
 }
@@ -274,4 +281,31 @@ li.hoverzone:hover .hover {
  vertical-align:bottom;
  position:relative;
  top:-0.1ex;
+}
+
+.fieldtag {
+ background-color:#f2f2f2;
+ text-decoration:none;
+  border-bottom:1px solid #479;
+  border-right:1px solid #8AC;
+  border-top:1px solid transparent;
+  border-left:1px solid transparent;
+  font-size:80%;
+  font-size:80%;
+  line-height:2;
+  margin:2px 1px;
+  padding:3px 4px;
+  white-space:nowrap;
+  color:black;
+}
+
+.fieldtagname {
+ xfont-family:monospace;
+ font-variant:small-caps;
+ font-weight:bold;
+ color:#666;
+}
+
+.fieldtagvalue {
+
 }
