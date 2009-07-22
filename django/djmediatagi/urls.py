@@ -10,7 +10,8 @@ urlpatterns = patterns('',
     (r'^bzpull/@(?P<target>.*)', 'djmediatagi.tvents.views.bzpull'),
     (r'^log(/(?P<tag>.*))?', 'djmediatagi.tvents.views.log'),
     (r'^summary(/(?P<tag>.*))?', 'djmediatagi.tvents.views.summary'),
-    (r'^$', 'djmediatagi.tvents.views.home'),                       
+    (r'^$', 'djmediatagi.tvents.views.home'),
+    (r'^addtags(/@(?P<target_id>.*))?', 'djmediatagi.tvents.views.addtags'),                       
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:

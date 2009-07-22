@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block html_title %}Add Tags{% if target %} {{ target.target }}{% endif %}{% endblock %}
+
+{% block headerText %}
+
+/ addtags {% if target %}/ {{ target.target }} {% endif %}
+
+{% endblock %}
+
+{% block main %}
+
+<h1>Add Tags{% if target %} to{% endif %}...</h1>
+
+{% if target %}
+{% include 'target_names_medium.html' %}
+{% endif %}
+
+<p/>
+
+
+{% endblock %}

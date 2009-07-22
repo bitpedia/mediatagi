@@ -80,11 +80,9 @@ def log(request, tag=''):
             pass
     try:
         until = to_datetime(request.GET['until'])
+        tvents = tvents.filter(datetime__lte=until)
     except (KeyError, ValueError):
         until = ''
-    if not until:
-        until = datetime.utcnow()
-    tvents = tvents.filter(datetime__lte=until)
 
     tvents = tvents.order_by('-datetime')
     tvents.select_related('target')
@@ -140,3 +138,12 @@ def summary(request, tag=''):
     grouped_summaries[-1][-1].sort(lambda x,y:cmp(x.count,y.count))
     
     return render_to_response('summary.html',{'grouped_summaries':grouped_summaries, 'consfield_summaries':consfield_summaries, 'tag':tag})
+
+def addtags(request, target_id):
+    if target_id:
+        target = Target.objects.get(pk=target_id)
+    else:
+        target = None
+
+    return render_to_response("addtags.html",{'target':target})
+        
