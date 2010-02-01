@@ -256,10 +256,6 @@ li.hoverzone:hover .hover {
  padding:1em;
 }
 
-.tools {
- text-align:right;
-}
-
 .toggle {
  xcursor:pointer;
  xfont-weight:bold;
@@ -271,10 +267,14 @@ li.hoverzone:hover .hover {
 .showFirst .bfirst, .showMost .bmost, .showLast .blast {display:block;}
 
 .tools {
+ text-align:right;
+ line-height:66%
+}
+
+.tools label {
  font-family:arial,helvetica;
  font-weight:bolder;
  font-size:166%;
- line-height:66%
 }
 
 .tools input {
