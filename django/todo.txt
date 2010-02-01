@@ -8,6 +8,18 @@ X   - templatize, header/footer
 X   - f/m/l toggles
  - taglog
 X   - add f/m/l name per tvent
+ - parameterize 
+   - delegate site name/logo
+   - remove site-secret
+   - delegate site DB
+   - delegate autofill/pull source function
+ - pull improvements
+   - autopull not-found summaries/logs
+   - don't pull anon/pending/ex-user
+ - add pinax wiki
+
+MILESTONE? === read-only bitpedia.org site
+
  - tvent contribution page
  - tag-to-target summary
  - tag fixup
@@ -39,7 +51,7 @@ CustomDjangoWiki
 advantages
 - unified login
 - total control of features/integration with tagi side
-- might get reuse of some other wiki app
+- might get reuse of some other wiki app (pinax?)
 disadvantages
 - time spent reimplementing core features (edit, history, etc.) 
   rather than one-time user integration
