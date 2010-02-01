@@ -11,7 +11,10 @@ def home(request):
 
 def bzpull(request, target):
     """Pull tvents from bitzi.com for given bitprint."""
-    tventtxt = urllib.urlopen("http://bitzi.com/lookup/%s?v=tventtxt" % target)
+    if target.startswith("sha1:"):
+        target = target[5:]
+    url = "http://bitzi.com/lookup/%s?v=tventtxt" % target
+    tventtxt = urllib.urlopen(url)
     tventdict = {}
     targets_to_update = set()
     count = 0
@@ -55,6 +58,7 @@ def bzpull(request, target):
             target = Target.objects.get_or_create(id=tventdict['target_id'])
             tvent.target = target
             targets_to_update.add(target.id)
+            # TODO: cleanup tags here? 
             tvent.save()
             count += 1
         else:
@@ -65,7 +69,7 @@ def bzpull(request, target):
     # trigger update of any possibly-changed Target summaries
     for id in targets_to_update:
         Target.objects.get(id=id).updateFromTvents()
-    return HttpResponse('Pulled %d tvents from:\n %s' % (count, text), mimetype='text/plain')
+    return HttpResponse('Pulled %d tvents from: %s\n %s' % (count, url, text), mimetype='text/plain')
 
 def log(request, tag=''):
     """Display a revchron log of Tvents (all or matching 'tag')"""
